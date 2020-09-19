@@ -7,7 +7,7 @@ import pl.sda.repository.SpeakerRepository;
 import pl.sda.service.SpeakerService;
 import pl.sda.service.SpeakerServiceImpl;
 
-import java.sql.SQLOutput;
+
 
 public class Application {
 
@@ -16,7 +16,6 @@ public class Application {
 
         SpeakerService speakerService = appContext.getBean("speakerService", SpeakerServiceImpl.class);
 
-//        System.out.println(appContext.getBean("speakerRepository", SpeakerRepository.class));
         System.out.println(speakerService.findAll().get(0).getFirstname());
 
     }
