@@ -2,6 +2,7 @@ package pl.sda;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import pl.sda.repository.HibernateSpeakerRepositoryImpl;
 import pl.sda.repository.SpeakerRepository;
 import pl.sda.service.SpeakerService;
@@ -11,6 +12,7 @@ import pl.sda.service.SpeakerServiceImpl;
 public class AppConfig {
 
     @Bean(name="speakerService")
+    @Scope(value = "prototype")
     public SpeakerService getSpeakerService(){
         SpeakerServiceImpl service = new SpeakerServiceImpl();
         service.setSpeakerRepository(getSpeakerRepository());
@@ -18,6 +20,7 @@ public class AppConfig {
     }
 
     @Bean(name="speakerRepository")
+    @Scope(value = "singleton") //"singleton" "scope"
     public SpeakerRepository getSpeakerRepository(){
         return new HibernateSpeakerRepositoryImpl();
     }
