@@ -9,15 +9,15 @@ import java.util.List;
 
 
 @Repository("speakerRepository")
-@Profile("prod")
-public class HibernateSpeakerRepositoryImpl implements SpeakerRepository {
+@Profile("dev")
+public class PostgresSpeakerRepositoryImpl implements SpeakerRepository {
 
     @Override
     public List<Speaker> findAll(){
         List<Speaker> list = new ArrayList<>();
         Speaker speaker = new Speaker();
-        speaker.setFirstname("Eustachy");
-        speaker.setLastname("Motyka");
+        speaker.setFirstname("Zdzisław");
+        speaker.setLastname("Chyba");
 
         list.add(speaker);
         return list;
